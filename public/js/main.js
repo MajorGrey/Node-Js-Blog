@@ -37,3 +37,19 @@
     }
 
 })(jQuery); // End of use strict
+
+const postDel = document.querySelector('a.delete');
+postDel.addEventListener('click', (e) => {
+    const url = `/admin/post/delete/${postDel.dataset.del}`;
+    fetch(url, {
+            method: 'delete'
+        })
+        .then((data) => {
+            if (data.status == 200) {
+                alert('success')
+            }
+        })
+        .catch((er) => {
+            console.log(err)
+        });
+});

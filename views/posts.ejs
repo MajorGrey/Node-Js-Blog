@@ -1,7 +1,7 @@
 <?- include('layout/header')?>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('/img/nodejs.jpg')">
+    <header class="masthead" style="background-image: url('img/nodejs.jpg')">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -18,16 +18,16 @@
     <!-- Main Content -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto">
-                <? posts.forEach( (post)=>{?>
+            <? posts.forEach( (post)=>{?>
+                <div class="col-lg-4 col-md-4 mx-auto">
                     <div class="post-preview">
                         <a href="/post/<?= post.id?>">
                             <h2 class="post-title">
                                 <?= post.title?>
                             </h2>
-                            <h3 class="post-subtitle">
-                                <?= post.desc?>
-                            </h3>
+                            <h5 class="post-subtitle">
+                                <?# post.desc?>
+                            </h5>
                         </a>
                         <p class="post-meta">Posted by
                             <a href="https://chuksokwuenu.com" target="_blank">
@@ -37,14 +37,11 @@
                         </p>
                     </div>
                     <hr>
-                    <? });?>
-                        <!-- Pager -->
-                        <div class="clearfix text-center">
-                            <a class="btn btn-success " href="/posts">Load More</a>
-                        </div>
-            </div>
+                </div>
+                <? });?>
         </div>
     </div>
+
 
     <!-- Footer -->
     <?- include('layout/footer')?>

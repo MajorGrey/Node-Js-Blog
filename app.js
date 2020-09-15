@@ -1,7 +1,9 @@
 const express = require('express');
 const ejs = require('ejs');
 const morgan = require('morgan')
-const route = require('./controllers/routes');
+const route = require('./routes/route');
+const postRoute = require('./routes/postRoutes');
+const adminRoute = require('./routes/adminRoutes');
 const mongoose = require('mongoose');
 
 // express app
@@ -22,8 +24,14 @@ ejs.delimiter = '?';
 app.set('view engine', 'ejs');
 
 //middlewares and static files
+app.use(route)
+app.use(postRoute);
+app.use(adminRoute);
 app.use(express.static('public'));
 app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: true }));
 
 //route controller
-route(app);
+app.use((req, res) => {
+    res.status(404).render('404', { title: '404' });
+});

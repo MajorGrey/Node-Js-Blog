@@ -1,0 +1,47 @@
+<?- include('../layout/header')?>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('/img/nodejs.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>All Posts</h1>
+                        <span class="subheading">A Blog Developed With Node JS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="d-flex float-right">
+            <a href="/admin/post/create" class="btn btn-success m-3 ">Add New Post</a>
+        </div>
+        <div class="row">
+            <? data.forEach( (post)=>{?>
+                <div class="col-lg-4 col-md-4 mx-auto py-3">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <a href="/post/<?= post.id?>">
+                                <h5 class="card-title">
+                                    <?= post.title?>
+                                </h5>
+                            </a>
+                            <p class="card-text">
+                                <?= post.desc?>
+                            </p>
+                            <a href="/admin/post/update<?= post.id?>" class="float-left">Update</a>
+                            <a href="#" data-del="<?= post.id?>" class="float-right delete">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <? });?>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <?- include('../layout/footer')?>

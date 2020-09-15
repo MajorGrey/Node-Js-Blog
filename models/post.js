@@ -6,11 +6,11 @@ const postSchema = new Schema({
         type: String,
         required: true
     },
-    auther: {
+    author: {
         type: String,
         required: true
     },
-    shot_desc: {
+    desc: {
         type: String,
         required: true
     },
